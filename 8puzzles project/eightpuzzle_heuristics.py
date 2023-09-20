@@ -184,56 +184,8 @@ class EightPuzzleState:
         return self.__getAsciiString()
     # implementation of heuristics.
 
-    def h1(self):
-        goal = [0, 1, 2, 3, 4, 5, 6, 7, 8]
-        misplaced = 0
-        for row in range(3):
-            for col in range(3):
-                if self.cells[row][col] != 0 and self.cells[row][col] != goal[row * 3 + col]:
-                    misplaced += 1
-        return misplaced
-    
-    def h2(self):
-        goal = {0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8}
-        distance = 0
-        for row in range(3):
-            for col in range(3):
-                tile = self.cells[row][col]
-                if tile != 0:
-                    goal_row, goal_col = divmod(goal[tile], 3)
-                    distance += ((row - goal_row) ** 2 + (col - goal_col) ** 2) ** 0.5
-        return distance
+   
 
-    def h3(self):
-        goal = {0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8}
-        distance = 0
-        for row in range(3):
-            for col in range(3):
-                tile = self.cells[row][col]
-                if tile != 0:  # Exclude the blank tile
-                    goal_row, goal_col = divmod(goal[tile], 3)
-                    distance += abs(row - goal_row) + abs(col - goal_col)
-        return distance
-
-    def h4(self):
-        goal = {0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8}
-        out_of_row = 0
-        out_of_col = 0
-        for row in range(3):
-            for col in range(3):
-                tile = self.cells[row][col]
-                if tile != 0:  # Exclude the blank tile
-                    goal_row, goal_col = divmod(goal[tile], 3)
-                    if row != goal_row:
-                        out_of_row += 1
-                    if col != goal_col:
-                        out_of_col += 1
-        return out_of_row + out_of_col
-
-    
-
-    
-    
 
 # TODO: Implement The methods in this class
 
@@ -318,11 +270,7 @@ if __name__ == '__main__':
     puzzle = createRandomEightPuzzle(25)
     print('A random puzzle:')
     print(puzzle)
-    print("h1:", puzzle.h1())
-    print("h2:", puzzle.h2())
-    print("h3:", puzzle.h3())
-    print("h4:", puzzle.h4())
-
+    print("h1:",h1(puzzle)
     problem = EightPuzzleSearchProblem(puzzle)
     path= search.aStarSearch(problem)    
     """
