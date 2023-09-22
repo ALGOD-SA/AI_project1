@@ -28,9 +28,9 @@ def main():
             # Convert the flattened puzzle from the CSV into a 2D list
             puzzle = [list(map(int, row[i:i+3])) for i in range(0, 9, 3)]
             problem = EightPuzzleSearchProblem(puzzle)
-            for heuristic in [None, h1, h2, h3, h4]:
+            for heuristic in [h1, h2, h3, h4]:
                 actions, depth, expanded= aStarSearch(problem, heuristic)
-                heuristic_name = heuristic.__name__ if heuristic else "No Heuristic"
+                heuristic_name = heuristic.__name__
                 results.append((heuristic_name, depth, expanded))
 
     with open('results.csv', 'w', newline='') as file:
