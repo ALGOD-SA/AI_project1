@@ -27,7 +27,8 @@ def main():
         for row in reader:
             # Convert the flattened puzzle from the CSV into a 2D list
             puzzle = [list(map(int, row[i:i+3])) for i in range(0, 9, 3)]
-            problem = EightPuzzleSearchProblem(puzzle)
+            flattened_puzzle = [tile for row in puzzle for tile in row]
+            puzzleState = EightPuzzleState(flattened_puzzle)
             for heuristic in [h1, h2, h3, h4]:
                 actions, depth, expanded= aStarSearch(problem, heuristic)
                 heuristic_name = heuristic.__name__
