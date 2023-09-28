@@ -1,0 +1,26 @@
+Algorithm,Depth,Expanded Nodes,fringe size
+A* with h3,11,26,24
+depthFirstSearch,101,10783,134
+breadthFirstSearch,11,1956,1192
+uniformCostSearch,11,1956,1192
+A* with h3,5,6,7
+depthFirstSearch,101,401252,134
+breadthFirstSearch,5,86,69
+uniformCostSearch,5,86,69
+A* with h3,7,9,8
+depthFirstSearch,101,109161,132
+breadthFirstSearch,7,266,175
+uniformCostSearch,7,266,175
+A* with h3,3,4,4
+depthFirstSearch,101,391877,134
+breadthFirstSearch,3,14,17
+uniformCostSearch,3,14,17
+A* with h3,5,6,7
+depthFirstSearch,101,401159,134
+breadthFirstSearch,5,91,70
+uniformCostSearch,5,91,70
+Search methods,Average Depth,Average Expanded Nodes,Average fringe size
+A* with h3: ,6.2,10.2,10.0
+Bfs: ,6.2,482.6,304.6
+Dfs: ,101.0,262846.4,133.6
+Ucs: ,6.2,482.6,304.6
